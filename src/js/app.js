@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import ReactDOM from 'react-dom';
 
-import Header from './Header';
-import FirstScreenContent from './FirstScreenContent';
+import Header from './Components/Header';
+import FirstScreenContent from './Components/FirstScreenContent';
 
 // load stylesheets
 require("../less/style.less");

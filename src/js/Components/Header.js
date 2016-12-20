@@ -8,7 +8,7 @@ export default class Header extends React.Component{
 		return (
 			<header className="header">
 				<h1 className="header__site-title">
-					<img className="header__site-image" src="src/images/book.png"></img>
+					<img className="header__site-image" src="./image/book.png"></img>
 					Центр адміністративних послуг
 				</h1>
 			</header>
