@@ -24,7 +24,7 @@ export default  class FirstScreenContent extends React.Component {
 		let items = this.state.menuElements;
 		return (
 			<div className="content">
-				<div className="сategories__title">Виберіть категорію</div>
+				<div className="categories__title">Виберіть категорію</div>
 				<div className="categories__list">
 					{ items.map((item,i) => <CategoryItem key={i} text={item.text} img={item.imgSrc}/> ) }
 				</div>
