@@ -4,6 +4,7 @@
   "description": "React simple app",
   "main": "public/index.html",
   "scripts": {
+		"start": "webpack-dev-server --content-base public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Taras Rodynenko",
