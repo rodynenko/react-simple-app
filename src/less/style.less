@@ -10,6 +10,10 @@
 
 @titleFontSize: 34px;
 
+@secondScreenColor: #748096;
+@disabled: #c7cdd9;
+@allowed: #04b700;
+
 /* ----
 	Media sizes
 ---- */
@@ -24,11 +28,15 @@
 
 .clearfix{
 	&:after{
+		content: "";
 		display: block;
 		clear:both;
 	}
 }
 
+.text-center{
+	text-align: center;
+}
 /* ----
 	Normalization
 ----  */
@@ -82,12 +90,14 @@ body{
 	vertical-align: middle;
 }
 
-.categories__title{
-	padding: 25px 0;
+.categories__title, .services__title{
+	padding: 25px 40px;
 	font-size: @titleFontSize;
 	font-weight: bold;
 	color: @titleFontColor;
 	text-align: center;
+
+	.clearfix;
 }
 
 .categories__list{
@@ -196,9 +206,162 @@ body{
 	height: 104px;
 }
 
+/* ----
+	Second page
+---- */
+
+.return-button{
+	float: left;
+	padding: 10px 20px;
+	color: white;
+	font-size: 20px;
+	font-weight: normal;
+	border-radius: 4px;
+  background-color: @secondScreenColor;
+	text-decoration: none;
+}
+
+.return-button__back-arrow{
+	display: inline-block;
+	margin-right: 15px;
+}
+
+
+.step-indicator{
+	float: right;
+	color: @secondScreenColor;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 1.7;
+	span{
+		font-size: 28px;
+		font-weight: bold;
+		color: @categoryCardTitleColor;
+	}
+}
+
+.services__list{
+	padding: 0 40px 40px;
+	.clearfix;
+}
+
+.service__list-item{
+	float: left;
+	width: 50%;
+	border-bottom: 1px solid @backgroundColor;
+	border-left: 1px solid @backgroundColor;
+}
+
+.service-card{
+	display: table;
+	height: 110px;
+	width: 100%;
+	padding: 0 55px;
+	color: @categoryCardTitleColor;
+	font-size: 22px;
+	text-decoration: none;
+	background-color: white;
+}
+
+.service-card__title{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* -----
+ Third page
+------ */
+
+.submit-button{
+	display: inline-block;
+	margin: 55px 0;
+	padding: 25px 70px;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	border-radius: 4px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.submit-button_disabled{
+	.submit-button;
+	cursor: not-allowed;
+	background-color: @disabled;
+}
+
+.submit-button_active{
+	.submit-button;
+	cursor: pointer;
+	background-color: @allowed;
+}
+
+.document-list{
+	display: block;
+	width: 60%;
+	margin: 0 auto;
+	padding: 70px 20px;
+	background-color: white;
+}
+
+.document-list ul{
+	padding-left: 10%;
+	list-style-type: none;
+}
+
+.document-list__item{
+	line-height: 72px;
+	font-size: 22px;
+
+	span{
+		vertical-align: top;
+		line-height: 56px;
+	}
+}
+
+.document-list__pointer{
+	display: inline-block;
+	margin-right: 30px;
+	width: 35px;
+	height: 35px;
+	background-size: cover;
+}
+
+.document-list__pointer_disabled{
+	.document-list__pointer;
+	background-image: url('/image/checkbox-off.png');
+}
+
+.document-list__pointer_active{
+	.document-list__pointer;
+	background-image: url('/image/checkbox-on.png');
+}
+
+/* ----
+	SubMenu
+ ----- */
+
+.submenu{
+	padding: 10px 40px;
+	font-size: 16px;
+	color: white;
+	background-color: @secondScreenColor;
+}
+
+.submenu__arrow{
+	display: inline-block;
+	margin: 0 15px;
+}
+
 /* -----
 	Media requests
 ----- */
+
+@media (max-width: @screen-md-max){
+	.service__list-item{
+		width: 100%;
+	}
+}
 
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max){
 	.categories__list-item{
@@ -210,10 +373,16 @@ body{
 	.categories__list-item{
 		width: 50%;
 	}
+	.document-list{
+		width: 80%;
+	}
 }
 
 @media (max-width: @screen-xs-max){
 	.categories__list-item{
 		width: 100%;
+	}
+	.document-list{
+		width: 95%;
 	}
 }

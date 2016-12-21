@@ -2,20 +2,21 @@
 * Define inner content for first screen
 */
 import React from 'react';
+import { Link } from 'react-router';
 
 export default  class FirstScreenContent extends React.Component {
 	constructor(){
 		super();
 		this.state = {
 			menuElements: [
-				{ text: "Автотранспорт", imgSrc: "logo-transport" },
-				{ text: "Будівництво, архітектура, землекористування", imgSrc: "logo-building" },
-				{ text: "Громадянство", imgSrc: "logo-publicity" },
-				{ text: "Захист прав дитини", imgSrc: "logo-childhood" },
-				{ text: "Реєстрація місця, проживання/перебування", imgSrc: "logo-reestration" },
-				{ text: "Підприємницька діяльність", imgSrc: "logo-business" },
-				{ text: "Санітарне та епідемічне благополуччя, ветеринарна медицина", imgSrc: "logo-ses" },
-				{ text: "Комунальне господарство", imgSrc: "logo-gek" }
+				{ text: "Автотранспорт", imgSrc: "logo-transport", linkTo: "business" },
+				{ text: "Будівництво, архітектура, землекористування", imgSrc: "logo-building", linkTo: "business" },
+				{ text: "Громадянство", imgSrc: "logo-publicity", linkTo: "business" },
+				{ text: "Захист прав дитини", imgSrc: "logo-childhood", linkTo: "business" },
+				{ text: "Реєстрація місця, проживання/перебування", imgSrc: "logo-reestration", linkTo: "business" },
+				{ text: "Підприємницька діяльність", imgSrc: "logo-business", linkTo: "business" },
+				{ text: "Санітарне та епідемічне благополуччя, ветеринарна медицина", imgSrc: "logo-ses", linkTo: "business" },
+				{ text: "Комунальне господарство", imgSrc: "logo-gek", linkTo: "business" }
 			]
 		};
 	}
@@ -26,7 +27,7 @@ export default  class FirstScreenContent extends React.Component {
 			<div className="content">
 				<div className="categories__title">Виберіть категорію</div>
 				<div className="categories__list">
-					{ items.map((item,i) => <CategoryItem key={i} text={item.text} img={item.imgSrc}/> ) }
+					{ items.map((item,i) => <CategoryItem key={i} text={item.text} img={item.imgSrc} linkTo={item.linkTo}/> ) }
 				</div>
 			</div>
 		)
@@ -35,13 +36,13 @@ export default  class FirstScreenContent extends React.Component {
 
 const CategoryItem = (props) => (
 	<div className="categories__list-item">
-		<a className="category-card" href="#">
+		<Link to={props.linkTo} className="category-card">
 			<div className="category-card__image">
 				<div className={"logo "+props.img}></div>
 			</div>
 			<div className="category-card__title">
 				<span className="category-card__title-inner-text">{props.text}</span>
 			</div>
-		</a>
+		</Link>
 	</div>
 );
